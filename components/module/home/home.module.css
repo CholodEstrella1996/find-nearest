@@ -1,0 +1,24 @@
+/* CityList.module.css */
+
+.city-list-container {
+    margin-top: 20px; /* Espacio superior */
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  .city-list-header {
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+  
+  .city-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .city-list-item {
+    margin-bottom: 5px;
+  }
+  
