@@ -1,0 +1,26 @@
+.city-search-input {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+.city-search-results {
+  max-height: 300px; /* Altura máxima del desplegable de resultados */
+  overflow-y: auto; /* Habilita el scroll vertical si hay más de 300px de contenido */
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.city-search-result-item {
+  cursor: pointer;
+  padding: 10px;
+  border-bottom: 1px solid #eee;
+}
+
+.city-search-result-item:last-child {
+  border-bottom: none; /* Elimina el borde inferior del último elemento */
+}

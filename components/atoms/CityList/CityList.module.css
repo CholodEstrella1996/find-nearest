@@ -1,0 +1,16 @@
+.city-list {
+  list-style-type: none;
+  padding: 0;
+  border-radius: 5px;
+}
+
+.city-list-item {
+  cursor: pointer;
+  padding: 10px;
+  background-color: #fff;
+  border-bottom: 1px solid #eee;
+}
+
+.city-list .city-list-item:last-child {
+  border-bottom: none; /* Elimina el borde inferior del último elemento */
+}

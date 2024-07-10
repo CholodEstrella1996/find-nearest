@@ -1,5 +1,14 @@
-import type { AppProps } from 'next/app'
+// src/App.tsx
+import React from 'react';
+import SearchInput from '../components/atoms/CitySearch';
+import Home from '../components/module/Home';
 
-export default function App({ Component, pageProps }: AppProps) {
-  return <Component {...pageProps} />
-}
+const App: React.FC = () => {
+  return (
+    <div className="App">
+      <Home/>
+    </div>
+  );
+};
+
+export default App;
