@@ -12,9 +12,7 @@ const CityList: React.FC<CityListProps> = ({ cities, onSelectCity }) => {
   return (
     <ul className={styles['city-list']}>
       {cities.map((city) => (
-        <li key={city.id} className={styles['city-list-item']}>
-          <CityItem city={city} onSelect={onSelectCity} />
-        </li>
+          <CityItem key={city.id}  city={city} onSelect={onSelectCity} />
       ))}
     </ul>
   );

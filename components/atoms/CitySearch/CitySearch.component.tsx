@@ -1,16 +1,18 @@
 import React, { useState } from "react";
+import Input from '@mui/joy/Input';
 import useCitySearch from "../../../hooks/useCitySearch";
 import { City } from "./CitySearch.model";
 import cities from "../../../public/cities.json";
 import CityList from "../CityList";
 import { calculateDistance } from "../../../utils/searchCity";
 import { mapCities } from "../../../hooks/convert";
-import styles from "./CitySearch.module.css"; // Importa los estilos CSS módulo
+import styles from "./CitySearch.module.css"; 
+import { Card } from "@mui/joy";
 
 const CitySearch: React.FC = () => {
   const [query, setQuery] = useState("");
   const [selectedCity, setSelectedCity] = useState<City | null>(null);
-  const { suggestions, searchCities } = useCitySearch(query);
+  const {suggestions, searchCities } = useCitySearch(query);
   const [nearCities, setNearCities] = useState<City[] | null>(null);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -37,27 +39,28 @@ const CitySearch: React.FC = () => {
   };
 
   return (
-    <div>
-      <input
+    <div className={styles["container"]}>
+      <Input
         className={styles["city-search-input"]} 
         type="text"
         value={query}
         onChange={handleInputChange}
         placeholder="Search for a city"
       />
-      <div className={styles["city-search-results"]}> 
+      <Card  className={styles["city-search-results"]}> 
         <CityList cities={suggestions} onSelectCity={handleSelectCity} />
-      </div>
+      </Card>
       {selectedCity && (
-        <div>
-          <h2>Selected City: {selectedCity.name}</h2>
-          {nearCities.map((city) => (
-            <h2 key={city.id}>
-              {" "}
-              {city.name} ({city.lat}, {city.lng})
-            </h2>
-          ))}
-        </div>
+         <div className={styles["selected-city"]}>
+         <h2>Selected City: {selectedCity.name}</h2>
+         <div className={styles["nearest-cities"]}>
+           {nearCities.map((city) => (
+             <h3 key={city.id}>
+               {city.name} ({city.lat}, {city.lng})
+             </h3>
+           ))}
+         </div>
+       </div>
       )}
     </div>
   );
