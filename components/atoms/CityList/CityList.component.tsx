@@ -1,7 +1,7 @@
 import React from 'react';
 import { City } from './CityList.model';
 import CityItem from '../CityItem';
-import styles from './CityList.module.css'; // Importa los estilos CSS módulo
+import styles from './CityList.module.css'; 
 
 interface CityListProps {
   cities: City[];
