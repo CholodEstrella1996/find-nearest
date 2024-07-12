@@ -39,30 +39,35 @@ const CitySearch: React.FC = () => {
   };
 
   return (
-    <div className={styles["container"]}>
+    <div className={styles.container}>
+    <div className={styles.column}>
       <Input
-        className={styles["city-search-input"]} 
+        className={styles["city-search-input"]}
         type="text"
         value={query}
         onChange={handleInputChange}
         placeholder="Search for a city"
       />
-      <Card  className={styles["city-search-results"]}> 
+      <Card className={styles["city-search-results"]}>
         <CityList cities={suggestions} onSelectCity={handleSelectCity} />
       </Card>
-      {selectedCity && (
-         <div className={styles["selected-city"]}>
-         <h2>Selected City: {selectedCity.name}</h2>
-         <div className={styles["nearest-cities"]}>
-           {nearCities.map((city) => (
-             <h3 key={city.id}>
-               {city.name} ({city.lat}, {city.lng})
-             </h3>
-           ))}
-         </div>
-       </div>
-      )}
     </div>
+    {selectedCity && (
+      <div className={styles.column}>
+        <div className={styles["selected-city"]}>
+          <h2>Selected City: {selectedCity.name}</h2>
+          <div className={styles["nearest-cities"]}>
+            {nearCities.map((city) => (
+              <h3 key={city.id}>
+                {city.name} ({city.lat}, {city.lng})
+              </h3>
+            ))}
+          </div>
+        </div>
+      </div>
+    )}
+  </div>
+  
   );
 };
 
